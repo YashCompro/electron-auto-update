@@ -21,6 +21,7 @@ function createWindow () {
 }
 
 app.on('ready', () => {
+  debugger;
   createWindow();
 });
 
