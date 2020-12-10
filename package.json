@@ -5,7 +5,7 @@
   "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YashCompro/elentron-auto-update.git"
+    "url": "https://github.com/YashCompro/electron-auto-update.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
