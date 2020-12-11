@@ -61,7 +61,7 @@ autoUpdater.on('download-progress', (progressObj) => {
 })
 
 function sendStatusToWindow(text) {
-    mainWindow.webContents.send('message', text);
+  mainWindow.webContents.send('message', text);
 }
 
 setInterval(() => {
