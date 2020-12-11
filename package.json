@@ -1,6 +1,6 @@
 {
   "name": "electron-auto-update-example",
-  "version": "3.0.9",
+  "version": "3.1.0",
   "description": "",
   "main": "main.js",
   "repository": {
@@ -11,7 +11,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "build": "electron-builder build --win --publish never",
-    "deploy": "electron-builder build --win --publish always"
+    "deploy": "electron-builder build --win --publish always",
+    "electron:serve": "set IS_DESKTOP_DEV=true && npm run serve",
+    "electron:start": "set ELECTRON_ENABLE_LOGGING=1 && electron .",
+    "electron:build:start": "npm run build:aot && npm run electron:start",
+    "electron:start:dev": "set ELECTRON_ENABLE_LOGGING=1 && electron . --dev",
+    "electron:dev": "set ELECTRON_ENABLE_LOGGING=1 && concurrently \"npm run start\" \"wait-on http-get://localhost:5006/ && electron . --dev\" ",
+    "electron:linux": "electron-builder --linux",
+    "electron:windows": "electron-builder --windows",
+    "electron:windows:setup": "electron-builder -w --prepackaged ./release/win-unpacked/",
+    "electron:mac": "electron-builder --mac",
+    "electron:release": "electron-builder -p always",
+    "electron:release:local": "set TRAVIS_BRANCH=dev && TRAVIS_BUILD_NUMBER=1 && electron-builder -p always"
   },
   "author": "",
   "license": "ISC",
