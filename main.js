@@ -53,15 +53,15 @@ autoUpdater.on('update-downloaded', () => {
 });
   
 autoUpdater.on('download-progress', (progressObj) => {
-    let log_message = "Download speed: " + progressObj.bytesPerSecond;
-    log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+    let log_message = "Download speed: " + progressObj.bytesPerSecond / 1024 + "MB ";
+    log_message = log_message + ' - Downloaded ' + progressObj.percent.toFixed(2) + '%';
     log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
     mainWindow.webContents.send('message', text);
 })
 
 setInterval(() => {
   autoUpdater.checkForUpdates();
-}, 10000)
+}, 60000)
 
 ipcMain.on('restart_app', () => {
   autoUpdater.quitAndInstall();
