@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Electron Auto Update Example</title>
+  <title>Electron Auto Update Title</title>
   <style>
     body {
       box-sizing: border-box;
@@ -26,7 +26,7 @@
   </style>
 </head>
 <body>
-  <h1>Electron Auto Update Example ( updated )</h1>
+  <h1>Electron Auto Update Example Body</h1>
   <p id="version"></p>
   <div id="notification" class="hidden">
     <p id="message"></p>
@@ -48,6 +48,8 @@
     ipcRenderer.on('app_version', (event, arg) => {
       ipcRenderer.removeAllListeners('app_version');
       version.innerText = 'Version ' + arg.version;
+      console.log(event);
+      console.log(arg);
     });
 
     ipcRenderer.on('update_available', () => {

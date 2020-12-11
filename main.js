@@ -39,14 +39,17 @@ app.on('activate', function () {
 
 ipcMain.on('app_version', (event) => {
   event.sender.send('app_version', { version: app.getVersion() });
+  console.log('app');
 });
 
 autoUpdater.on('update-available', () => {
   mainWindow.webContents.send('update_available');
+  console.log('available');
 });
 
 autoUpdater.on('update-downloaded', () => {
   mainWindow.webContents.send('update_downloaded');
+  console.log('downloaded');
 });
 
 setInterval(() => {
