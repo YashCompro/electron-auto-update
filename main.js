@@ -66,7 +66,7 @@ function sendStatusToWindow(text) {
 
 setInterval(() => {
   autoUpdater.checkForUpdates();
-}, 60000)
+}, 10000)
 
 ipcMain.on('restart_app', () => {
   autoUpdater.quitAndInstall();

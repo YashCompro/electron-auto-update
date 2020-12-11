@@ -69,6 +69,11 @@
       console.log(progressObj);
     });
 
+    ipcRenderer.on('message', (event, progressObj) => {
+      console.log(event);
+      console.log(progressObj);
+    });
+
     function closeNotification() {
       notification.classList.add('hidden');
     }
