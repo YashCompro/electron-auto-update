@@ -40,4 +40,4 @@ before_cache:
 # the 'master' and 'qa' branches
 branches:
   only:
-  - qa-desktop
+  - main

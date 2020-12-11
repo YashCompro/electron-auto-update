@@ -65,10 +65,6 @@
       notification.classList.remove('hidden');
     });
 
-    ipcRenderer.on('download-progress', (progressObj) => {
-      console.log(progressObj);
-    });
-
     ipcRenderer.on('message', (event, progressObj) => {
       console.log(event);
       console.log(progressObj);
