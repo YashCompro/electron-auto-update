@@ -52,6 +52,21 @@ autoUpdater.on('update-downloaded', () => {
   console.log('downloaded');
 });
 
+
+autoUpdater.logger = log;
+log.info('App starting...');    
+autoUpdater.on('download-progress', (progressObj) => {
+    let log_message = "Download speed: " + progressObj.bytesPerSecond;
+    log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+    log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+    sendStatusToWindow(log_message);
+})
+
+function sendStatusToWindow(text) {
+    log.info(text);
+    mainWindow.webContents.send('message', text);
+}
+
 setInterval(() => {
   autoUpdater.checkForUpdates();
 }, 60000)

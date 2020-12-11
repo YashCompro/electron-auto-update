@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Electron Auto Update Title</title>
+  <title>Electron Auto Update Title 1</title>
   <style>
     body {
       box-sizing: border-box;
@@ -26,7 +26,7 @@
   </style>
 </head>
 <body>
-  <h1>Electron Auto Update Example Body</h1>
+  <h1>Electron Auto Update Example Body 1 </h1>
   <p id="version"></p>
   <div id="notification" class="hidden">
     <p id="message"></p>
@@ -63,6 +63,10 @@
       message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
       restartButton.classList.remove('hidden');
       notification.classList.remove('hidden');
+    });
+
+    ipcRenderer.on('download-progress', (progressObj) => {
+      console.log(progressObj);
     });
 
     function closeNotification() {
