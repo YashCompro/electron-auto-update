@@ -16,12 +16,7 @@ function createWindow () {
     mainWindow = null;
   });
   mainWindow.once('ready-to-show', () => {
-    autoUpdater.checkForUpdates().then(data => {
-
-      console.log('************* check for updates data *****************');
-      console.log(data);
-
-    });
+    console.log('here');
   });
 }
 
@@ -45,6 +40,12 @@ app.on('activate', function () {
 ipcMain.on('app_version', (event) => {
   event.sender.send('app_version', { version: app.getVersion() });
   console.log('app');
+  autoUpdater.checkForUpdates().then(data => {
+
+    console.log('************* check for updates data *****************');
+    console.log(data);
+
+  });
 });
 
 autoUpdater.on('checking-for-update', (data) => {
