@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const { autoUpdater } = require('electron-updater');
 
 let mainWindow;
