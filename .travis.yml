@@ -38,4 +38,4 @@ before_cache:
 # the 'master' and 'qa' branches
 branches:
   only:
-  - main
+    - branch-not-exisits
